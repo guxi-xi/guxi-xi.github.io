@@ -1,0 +1,17 @@
+html {
+    --name: 主题5;
+    --main_bg_color: url(../img/background.jpg);/*背景*/
+    --main_text_color: #eeeeee;/*文本颜色*/
+    --gradient: linear-gradient(120deg, #bd34fe, #e0321b 30%, #41d1ff 60%);/*标题渐变颜色*/
+    --purple_text_color: #747bff;/*描述紫色文本颜色*/
+    --text_bg_color: #00000040;/*描述紫色文本背景颜色*/
+    --item_bg_color: #00000038;/*项目背景颜色*/
+    --item_hover_color: #33333338;/*项目鼠标移入颜色*/
+    --item_left_title_color: #ffffff;/*项目标题颜色*/
+    --item_left_text_color: #ffffff;/*项目描述颜色*/
+    --footer_text_color: #ffffff;/*底部文本颜色*/
+    --left_tag_item: rgb(27 42 57 / 20%);/*左侧标签颜色*/
+    --card_filter: 0px;/*卡片模糊的数值*/
+    --back_filter: 5px;/*背景模糊的数值*/
+    --back_filter_color: #00000030;/*全局阴影遮罩*/
+}

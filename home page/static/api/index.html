@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="./static/qmsg.js"></script>
+<link href="./static/qmsg.css" rel="stylesheet">
+    <title>随机美女</title>
+    <style>
+        /* 去除链接的默认下划线，设置链接颜色为黑色 */
+        a:hover,
+        a:link,
+        a:visited,
+        a:active,
+        a:focus ，
+        #selectOption{
+            text-decoration: none;
+            color: #000000;
+        }
+
+        /* 去除按钮和输入框的默认样式 */
+        button,
+        input,
+        input:focus ,
+        #apiOption,#autoOption{
+            outline: none;
+            border: none;
+        }
+
+        /* 去除链接、按钮和输入框的点击高亮效果 */
+        a,
+        button,
+        input {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+}
+@keyframes movement {
+0%,
+100% {
+background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax,
+110vmax 110vmax, 90vmax 90vmax;
+background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax,
+-30vmax -10vmax, 50vmax 50vmax;
+}
+25% {
+background-size: 100vmax 100vmax, 90vmax 90vmax, 100vmax 100vmax,
+90vmax 90vmax, 60vmax 60vmax;
+background-position: -60vmax -90vmax, 50vmax -40vmax, 0vmax -20vmax,
+-40vmax -20vmax, 40vmax 60vmax;
+}
+50% {
+background-size: 80vmax 80vmax, 110vmax 110vmax, 80vmax 80vmax,
+60vmax 60vmax, 80vmax 80vmax;
+background-position: -50vmax -70vmax, 40vmax -30vmax, 10vmax 0vmax,
+20vmax 10vmax, 30vmax 70vmax;
+}
+75% {
+background-size: 90vmax 90vmax, 90vmax 90vmax, 100vmax 100vmax,
+90vmax 90vmax, 70vmax 70vmax;
+background-position: -50vmax -40vmax, 50vmax -30vmax, 20vmax 0vmax,
+-10vmax 10vmax, 40vmax 60vmax;
+}
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width:100%;
+    background: #d6f0ff;
+    color: #fff;
+    background-image: radial-gradient(closest-side, rgb(255 174 157), rgba(235, 105, 78, 0)),
+    radial-gradient(closest-side, rgb(255 189 232), rgba(243, 11, 164, 0)),
+    radial-gradient(closest-side, rgb(255 246 202), rgba(254, 234, 131, 0)),
+    radial-gradient(closest-side, rgb(196 174 255), rgba(170, 142, 245, 0)),
+    radial-gradient(closest-side, rgb(255 215 183), rgba(248, 192, 147, 0));
+    background-repeat: no-repeat;
+    animation: 1s movement linear infinite;
+}
+
+        /* 默认容器样式 */
+      #infor {
+    border-radius: 40px;
+    box-shadow: 0 0 40px rgb(255 255 255 / 50%);
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    background: linear-gradient(2deg, #40b3ff, #974fdd);
+}
+        /* 视频容器样式 */
+       #video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 95vw;
+    height: 90%;
+    padding: 4vh 0;
+    box-sizing: border-box;
+}
+
+        /* 视频样式，占满父容器 */
+        video {
+            border-radius: 22px;
+           /* box-shadow: 0 0 40px rgb(0 51 203 / 50%);*/
+            max-width: 95vw;
+           max-height: 100%;
+        }
+#button-container{
+    display:flex;gap:12px;height: 10%;justify-content: center;align-items: center;
+}
+        /* 按钮样式 */
+        #start,
+        #blog-button,
+        #api-button,
+        #auto-button
+        {
+            height: 50px;
+            width: 70px;
+            background-color: #0043ff;
+            color: #fff;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 27px;
+            cursor: pointer;
+        }
+        #apiOption,
+        #autoOption{
+        
+            height: 40px;
+            width: 60px;
+            background-color: #0043ff;
+            color: #fff;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 33px;
+            cursor: pointer;
+        }
+       
+      
+     
+    </style>
+</head>
+
+<body>
+    <!-- 视频容器 -->
+    <div id="video-container">
+        <!-- 默认提示信息 -->
+        <div  id="infor">
+            随机视频</br>
+            作者：古稀</br>
+            自选接口</br>
+         
+
+        
+        </div>
+        <!-- 视频元素，初始时隐藏 -->
+        <video playsinline="true" webkit-playsinline="true" x5-playsinline="true" x5-video-orientation="portraint" x5-video-player-fullscreen="true" x5-video-player-type="h5" style="display: none" id="video"></video>
+    </div>
+    <!-- 按钮区域 --><div id="button-container">
+
+        <!-- 播放按钮 -->
+        <button  id="start" onclick="Start()">开始</button>
+        <!-- 播放下一个按钮 -->
+        <!-- 跳转到博客按钮 -->
+
+      <button style="display: none" id="auto-button">
+    <select id="autoOption">
+        
+ 
+        
+        
+
+ <option value="1">连播</option>
+ <option value="2">不连播</option>
+    </select>
+    </button>
+    
+      <button style="display: none" id="api-button">
+    <select id="apiOption">
+        
+ 
+        
+        <option value="https://hefollo.cn/api.php?type=小姐姐视频/学姐分区">自创分区</option>
+
+
+    </select>
+    </button>
+    </div>
+    
+   <script src="https://api.hefollo.cn/js/data.js"></script>
+
+    <!-- JavaScript 代码 -->
+      <script>
+ 
+// 在数组中查找指定 value 值等于 123 的对象
+const targetObj = Info.find(obj => obj.value === 20015);
+
+// 获取目标对象的子对象数组
+const childArray = targetObj.children;
+
+// 解析子对象数组中的所有对象的 label 值
+const labels = childArray.map(obj => obj.label);
+
+console.log(labels);
+
+const selectElement = document.getElementById("apiOption"); // 获取 <select> 元素
+
+labels.forEach(label => {
+  const optionElement = document.createElement("option"); // 创建 <option> 元素
+  optionElement.value = "https://hefollo.cn/api.php?type=小姐姐视频/" + label; // 添加前缀作为 value 值
+  optionElement.text = label; // 设置显示文本为 label 值
+  selectElement.appendChild(optionElement); // 将 <option> 元素添加到 <select> 元素中
+});
+
+            var video = document.getElementById('video');
+            var start = document.getElementById('start');
+            var infor = document.getElementById('infor');
+            var apiOption = document.getElementById('apiOption'); 
+            var apibutton = document.getElementById('api-button');
+            var autoOption = document.getElementById('autoOption'); 
+            var autobutton = document.getElementById('auto-button');
+            video.preload = 'metadata';
+            video.poster = 'https://blog.zyyo.net/usr/themes/ZYYO/static/img/load.gif';
+            video.src = apiOption.value;
+            video.addEventListener('ended', function () {
+                if (autoOption.value==1){
+                  Start();
+                }else{
+                    video.play();
+                }
+            });
+
+            apiOption.addEventListener('change', function () {
+            
+            Start();
+            });
+           autoOption.addEventListener('change', function () {
+               Qmsg.success("操作成功");
+            });
+        function Start() {
+            video.src = apiOption.value + "&="+ Math.floor(Math.random() * 1000000);
+            Qmsg.success("加载成功");
+            start.innerHTML = "下一个";
+            infor.style.display = 'none';
+            apibutton.style.display = 'block';
+             autobutton.style.display = 'block';
+            video.style.display = 'block';
+            video.load();
+            video.play().then(function () {}).catch(function (error) {
+                console.error('不允许自动播放:', error);
+            });
+        }
+
+    </script>
+        
+        
+<script type="text/javascript">document.onkeydown=function(e){if(e.key==="F12"){return false}};document.body.oncontextmenu=function(){self.event.returnValue=false};</script>
+
+
+
+<script type="text/javascript">!function(e,t,a){function r(){for(var e=0;e<s.length;e++)s[e].alpha<=0?(t.body.removeChild(s[e].el),s.splice(e,1)):(s[e].y--,s[e].scale+=.004,s[e].alpha-=.013,s[e].el.style.cssText="left:"+s[e].x+"px;top:"+s[e].y+"px;opacity:"+s[e].alpha+";transform:scale("+s[e].scale+","+s[e].scale+") rotate(45deg);background:"+s[e].color+";z-index:99999");requestAnimationFrame(r)}function n(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),o(e)}}function o(e){var a=t.createElement("div");a.className="heart",s.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:c()}),t.body.appendChild(a)}function i(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function c(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var s=[];e.requestAnimationFrame=e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)},i(".heart{width: 20px;height: 20px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -12px;}.heart:before{left: -12px;}"),n(),r()}(window,document);</script>
+</body>
+
+</html>
