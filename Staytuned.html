@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head class="guxi.net">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		古稀 </title>
+	<link rel="icon" href="./static/img/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="./static/css/Staytuned.css"><!--引用布局-->
+</head>
+<div class="content">
+    <h1 class="title">尽请期待
+      <div class="aurora">
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+        <div class="aurora__item"></div>
+      </div>
+    </h1>
+  </div>
+  <div class="projectList"><a class="projectItem a" target="_blank" href="./index.html" style="color:#ff0000" align="center">
+    <div class="projectItemLeft">
+        <h1>返回</h1>
+        <p>
+          <head>
+          <meta charset="UTF-8">
+          <title>实时显示系统时间B</title>
+           
+          <script>
+               function  getD1(){
+                   var date=new Date();
+                   var d1=date.toLocaleString();
+                   document.getElementById("datetime").innerHTML =d1; 
+               }
+           
+               setInterval("getD1();",1000);
+           
+          </script> 
+          </head>
+          <body  onload = getD1()>
+          <div id="datetime">/div>
+           
+          </body>
+        </p>
+    </div>
+    </a>
+</html>
